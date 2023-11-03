@@ -2,6 +2,7 @@ import {Admin, Resource} from 'react-admin'
 import {FirebaseAuthProvider, FirebaseDataProvider} from "react-admin-firebase";
 
 import products from './resources/products'
+import {CreateEmployee, ListEmployees} from "./resources/employees";
 
 
 const firebaseConfig = {
@@ -28,6 +29,7 @@ function App() {
   return (
       <Admin dataProvider={dataProvider} authProvider={authProvider}>
           <Resource name="products" {...products} />
+          <Resource name="employees" create={CreateEmployee} list={ListEmployees}/>
       </Admin>
   )
 }
